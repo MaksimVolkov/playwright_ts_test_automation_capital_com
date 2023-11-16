@@ -1,0 +1,40 @@
+{
+  "name": "playwright_ts_test_automation_capital_com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": " npx playwright test --workers 4",
+    "test:report": "npx playwright test --reporter=list,allure-playwright --workers 4",
+    "allure:report": "allure generate allure-results -o allure-report --clean && allure open",
+    "allure:clear": "rm -r allure-results/ allure-report/ test-results/ playwright-report / links.txt || true",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaksimVolkov/playwright_ts_test_automation_capital_com.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaksimVolkov/playwright_ts_test_automation_capital_com/issues"
+  },
+  "homepage": "https://github.com/MaksimVolkov/playwright_ts_test_automation_capital_com#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.39.0",
+    "@types/node": "^20.9.0",
+    "@typescript-eslint/eslint-plugin": "^6.11.0",
+    "@typescript-eslint/parser": "^6.11.0",
+    "allure-commandline": "^2.24.1",
+    "allure-playwright": "^2.9.2",
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-no-floating-promise": "^1.0.2",
+    "eslint-plugin-playwright": "^0.18.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "prettier": "3.1.0",
+    "typescript": "^5.2.2"
+  }
+}

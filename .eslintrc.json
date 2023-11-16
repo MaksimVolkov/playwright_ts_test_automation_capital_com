@@ -1,0 +1,26 @@
+{
+  "root": true,
+  "parserOptions": {
+    "project": "./tsconfig.json" // Путь к вашему tsconfig.json
+  },
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:playwright/recommended",
+    "prettier"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "playwright",
+    "no-floating-promise",
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": "error",
+    "@typescript-eslint/no-explicit-any": [
+      "off"
+    ],
+    "@typescript-eslint/no-floating-promises": 2
+  }
+}
