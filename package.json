@@ -8,8 +8,9 @@
     "test:report": "npx playwright test --reporter=list,allure-playwright --workers 4",
     "allure:report": "allure generate allure-results -o allure-report --clean && allure open",
     "allure:clear": "rm -r allure-results/ allure-report/ test-results/ playwright-report / links.txt || true",
-    "lint": "eslint ./src",
-    "lint:fix": "eslint ./src --fix"
+    "lint": "npx eslint ./src",
+    "lint:fix": "npx eslint ./src --fix",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -35,7 +36,8 @@
     "eslint-plugin-playwright": "^0.18.0",
     "eslint-plugin-prettier": "^5.0.1",
     "prettier": "3.1.0",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "husky": "^8.0.0"
   },
   "dependencies": {
     "dotenv": "^16.3.1"
