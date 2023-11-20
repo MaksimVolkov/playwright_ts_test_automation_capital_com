@@ -80,6 +80,7 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+.env
 node_modules/
 /test-results/
 /playwright-report/

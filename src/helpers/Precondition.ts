@@ -1,4 +1,5 @@
 import { Page } from '@playwright/test';
+import 'dotenv/config';
 
 export class Precondition {
   private readonly page: Page;

@@ -5,4 +5,5 @@ allure-results/
 .history/
 .github/
 node_modules/
-.cache/
+playwright.config.ts
+.cache/!/playwright.config.ts

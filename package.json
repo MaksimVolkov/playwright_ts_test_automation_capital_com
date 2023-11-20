@@ -36,5 +36,8 @@
     "eslint-plugin-prettier": "^5.0.1",
     "prettier": "3.1.0",
     "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1"
   }
 }
