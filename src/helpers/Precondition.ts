@@ -1,8 +1,15 @@
 import { expect, Page } from '@playwright/test';
-import { HeaderLocators } from '../elements/HeaderLocators';
+import { Selectors } from '../elements/Selectors';
 import 'dotenv/config';
 
-const selector = new HeaderLocators();
+const {
+  countryLanguage,
+  dropdownCountry,
+  countrySearchField,
+  countrySelectorFromList,
+  currentCountry,
+  languageSelector,
+} = Selectors.header.countryAndLanguage;
 
 export class Precondition {
   // private readonly page: Page;
@@ -18,14 +25,14 @@ export class Precondition {
   }
 
   public async setupCountryAndLanguage(country: string, language: string): Promise<void> {
-    await this.page.locator(selector.getSectionCountryLanguage()).hover(); // show country and language block
-    await this.page.locator(selector.getDropdownCountry()).click(); // click and open dropdown
-    await this.page.locator(selector.getCountrySearchField()).fill(country); // fill country abbreviation name input field
-    await this.page.locator(selector.getCountrySelectorFromList(country)).click(); // select a country from the list of sorted countries
-    const textElement = (await this.page.locator(selector.getCurrentCountry()).innerText()).toLowerCase();
+    await this.page.locator(countryLanguage).hover(); // show country and language block
+    await this.page.locator(dropdownCountry).click(); // click and open dropdown
+    await this.page.locator(countrySearchField).fill(country); // fill country abbreviation name input field
+    await this.page.locator(countrySelectorFromList(country)).click(); // select a country from the list of sorted countries
+    const textElement = (await this.page.locator(currentCountry).innerText()).toLowerCase();
     expect(`${textElement}`).toBe(country);
-    await this.page.locator(selector.getSectionCountryLanguage()).hover(); // show country and language block
-    await this.page.locator(selector.getLanguageSelector(language)).click(); // select a language from the list
+    await this.page.locator(countryLanguage).hover(); // show country and language block
+    await this.page.locator(languageSelector(language)).click(); // select a language from the list
     // TODO add expect language
   }
   public async navigateToTestSection(testSection: string): Promise<void> {

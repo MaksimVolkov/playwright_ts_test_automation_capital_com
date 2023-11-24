@@ -29,6 +29,8 @@ export class Role {
 
   public async setupForAuthorizedUser(): Promise<void> {
     await this.page.goto('/'); // go to main page
+    // process.env.LOGIN
+    // process.env.PASSWORD
     // TODO add steps
   }
 
@@ -38,7 +40,7 @@ export class Role {
   }
 
   public async setupForNotRegisteredUser(): Promise<void> {
+    await this.page.context().clearCookies();
     await this.page.goto('/'); // go to main page
-    // TODO add steps
   }
 }
