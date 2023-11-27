@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": " npx playwright test --workers 4",
-    "test:report": "npx playwright test --reporter=list,allure-playwright --workers 4",
+    "test": " npx playwright test --workers 1",
+    "test:report": "npx playwright test --reporter=list,allure-playwright --workers 1",
     "allure:report": "allure generate allure-results -o allure-report --clean && allure open",
     "allure:clear": "rm -r allure-results/ allure-report/ test-results/ playwright-report / links.txt || true",
     "lint": "npx eslint ./src",
