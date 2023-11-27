@@ -12,16 +12,40 @@ test.describe(`Tests for UNREGISTERED user`, () => {
   test.beforeEach(async ({ page }) => {
     precondition = new Precondition(page);
     role = new Role(page);
-    await role.setup('NotReg');
-    // TODO add role await role.setup('Auth');
-    // TODO add role await role.setup('UnAuth');
-    // TODO add "select all cookies";
   });
 
   for (const country of countries) {
     for (const language of languages) {
       test(`test № - Example test, ${country} country, ${language} language`, async () => {
-        // precondition = new Precondition(page);
+        await test.step('step: role selection NotReg', async () => {
+          await role.setup('NotReg');
+        });
+
+        await test.step('step: precondition', async () => {
+          await precondition.setup(country, language, 'Commodities trading');
+        });
+        // TODO tasks
+        expect(true).toBe(true);
+      });
+    }
+  }
+});
+test.describe(`Tests for AUTHORIZED user`, () => {
+  let precondition: Precondition;
+  let role: Role;
+
+  test.beforeEach(async ({ page }) => {
+    precondition = new Precondition(page);
+    role = new Role(page);
+  });
+
+  for (const country of countries) {
+    for (const language of languages) {
+      test(`test № - Example test, ${country} country, ${language} language`, async () => {
+        await test.step('role selection Auth', async () => {
+          await role.setup('Auth');
+        });
+
         await test.step('step precondition', async () => {
           await precondition.setup(country, language, 'Commodities trading');
         });
@@ -31,6 +55,28 @@ test.describe(`Tests for UNREGISTERED user`, () => {
     }
   }
 });
+test.describe(`Tests for UNAUTHORIZED user`, () => {
+  let precondition: Precondition;
+  let role: Role;
 
-// TODO AUTHORIZED
-// TODO UNAUTHORIZED
+  test.beforeEach(async ({ page }) => {
+    precondition = new Precondition(page);
+    role = new Role(page);
+  });
+
+  for (const country of countries) {
+    for (const language of languages) {
+      test(`test № - Example test, ${country} country, ${language} language`, async () => {
+        await test.step('role selection UnAuth', async () => {
+          await role.setup('UnAuth');
+        });
+
+        await test.step('step precondition', async () => {
+          await precondition.setup(country, language, 'Commodities trading');
+        });
+        // TODO tasks
+        expect(true).toBe(true);
+      });
+    }
+  }
+});

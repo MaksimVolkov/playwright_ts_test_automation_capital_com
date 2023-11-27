@@ -1,13 +1,13 @@
 export const Selectors = {
   header: {
     countryAndLanguage: {
-      selectorLinkLogo: "a[class$='logo']",
-      countryLanguage: "div[class='licLangSw js-licLangSw']",
-      dropdownCountry: "input[class='fieldDropdown__control fieldDropdown__control--hidden']",
-      countrySearchField: "input[class='fieldDropdown__control js-countriesSearchInput js-fieldDropdownFilterSearch']",
-      countrySelectorFromList: (country: string): string => `a[data-country='${country}']`,
+      selectorLinkLogo: 'a[class$="logo"]',
+      countryLanguage: 'div[class="licLangSw js-licLangSw"]',
+      dropdownCountry: 'input[class="fieldDropdown__control fieldDropdown__control--hidden"]',
+      countrySearchField: 'input[class="fieldDropdown__control js-countriesSearchInput js-fieldDropdownFilterSearch"]',
+      countrySelectorFromList: (country: string): string => `a[data-country="${country}"]`,
       currentCountry: 'small[class="js-currCountry"]',
-      languageSelector: (language: string): string => `a[data-type='nav_lang_${language}']`,
+      languageSelector: (language: string): string => `a[data-type="nav_lang_${language}"]`,
     },
     productsAndServices: {
       productsAndServices: 'data-type="nav_id2"',
@@ -112,15 +112,47 @@ export const Selectors = {
       partnershipProgramme: 'nav_id323',
     },
     buttons: {
-      logIn: "a[data-type='btn_header_login']",
-      signUp: 'a.cc-header__btn.js_signup',
+      buttonLogIn: 'a[data-type="btn_header_login"]',
+      buttonSignUp: 'a.cc-header__btn.js_signup',
+      buttonMyAccount: 'button[id="wg_userarea"]',
+      buttonLogout: 'div[class*="logout-user"]',
     },
   },
   content: {
     buttons: {
-      logIn: "a[data-type='btn_header_login']",
+      logIn: 'a[data-type="btn_header_login"]',
       signUp: 'a.cc-header__btn.js_signup',
     },
   },
   footer: {},
+  forms: {
+    logIn: {
+      logInBlock: 'div[id="l_overlay"]>div[class*="modal"]',
+      titleH1: 'div[id="l_overlay"] div[class="h1"]',
+      emailField: 'div[id="l_overlay"] input[type="email"]',
+      passwordField: 'div[id="l_overlay"] input[type="password"]',
+      checkbox: 'div[id="l_overlay"] input[class="l-rem"][type="checkbox"]',
+      submitButton: 'div[id="l_overlay"] button[class*="l_btn"][type="submit"]',
+      cancelButton: 'div[id="l_overlay"] button[class*="cancel"]',
+    },
+    signUp: {
+      signUpBlock: 'div[id="s_overlay"]>div[class*="modal"]',
+      titleH1: 'div[id="s_overlay"] div[class="h1"]',
+      emailField: 'div[id="s_overlay"] input[type="email"]',
+      passwordField: 'div[id="s_overlay"] input[type="password"]',
+      submitButton: 'div[id="s_overlay"] button[type="submit"]',
+      cancelButton: 'div[id="s_overlay"] button[class*="cancel"]',
+    },
+    forgotPassword: {
+      forgotPasswordBlock: 'div[id="f_overlay"]>div[class*="modal"]',
+      titleH1: 'div[id="f_overlay"] div[class="h1"]',
+      emailField: 'div[id="f_overlay"] input[type="email"]',
+      submitButton: 'div[id="f_overlay"] button[class*="f_btn"]',
+      cancelButton: 'div[id="f_overlay"] button[class*="cancel"]',
+    },
+  },
+  cookies: {
+    cookiesBlock: '#onetrust-banner-sdk',
+    cookiesAccept: '#onetrust-accept-btn-handler',
+  },
 };

@@ -26,7 +26,7 @@ export class Precondition {
 
   public async setupCountryAndLanguage(country: string, language: string): Promise<void> {
     await this.page.locator(countryLanguage).hover(); // show country and language block
-    await this.page.locator(dropdownCountry).click(); // click and open dropdown
+    await this.page.locator(dropdownCountry).click({ timeout: 5000 }); // click and open dropdown
     await this.page.locator(countrySearchField).fill(country); // fill country abbreviation name input field
     await this.page.locator(countrySelectorFromList(country)).click(); // select a country from the list of sorted countries
     const textElement = (await this.page.locator(currentCountry).innerText()).toLowerCase();
