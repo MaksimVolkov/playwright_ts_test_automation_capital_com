@@ -9,7 +9,7 @@
     "allure:report": "allure generate allure-results -o allure-report --clean && allure open",
     "allure:clear": "rm -r allure-results/ allure-report/ test-results/ playwright-report / links.txt || true",
     "lint": "npx eslint ./src",
-    "lint:fix": "npx eslint ./src --fix",
+    "lint:fix": "npx eslint ./src --fix && prettier --write ./src",
     "prepare": "husky install"
   },
   "repository": {

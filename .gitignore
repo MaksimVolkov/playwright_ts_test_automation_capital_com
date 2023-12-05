@@ -89,3 +89,5 @@ node_modules/
 
 allure-results
 allure-report
+
+/black_box_in_a_dark_corner

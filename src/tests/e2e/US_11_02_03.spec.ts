@@ -1,82 +1,33 @@
 import { test, expect } from '@playwright/test';
-import { Role } from '../../helpers/Role';
-import { Precondition } from '../../helpers/Precondition';
+import { MainPage } from './MainPage';
+import { testParams } from './US_11_02_03_TestParams';
+import { testCases } from './US_11_02_03_TestCases';
 
-const countries = ['au', 'de'];
-const languages = ['es', 'de', 'fr'];
-
-test.describe(`Tests for UNREGISTERED user`, () => {
-  let precondition: Precondition;
-  let role: Role;
+test.describe('Main Page Tests', () => {
+  let mainPage: MainPage;
 
   test.beforeEach(async ({ page }) => {
-    precondition = new Precondition(page);
-    role = new Role(page);
+    mainPage = new MainPage(page);
+    await mainPage.setup();
   });
 
-  for (const country of countries) {
-    for (const language of languages) {
-      test(`test № - Example test, ${country} country, ${language} language`, async () => {
-        await test.step('step: role selection NotReg', async () => {
-          await role.setup('NotReg');
-        });
-
-        await test.step('step: precondition', async () => {
-          await precondition.setup(country, language, 'Commodities trading');
-        });
-        // TODO tasks
-        expect(true).toBe(true);
-      });
-    }
-  }
-});
-test.describe(`Tests for AUTHORIZED user`, () => {
-  let precondition: Precondition;
-  let role: Role;
-
-  test.beforeEach(async ({ page }) => {
-    precondition = new Precondition(page);
-    role = new Role(page);
-  });
-
-  for (const country of countries) {
-    for (const language of languages) {
-      test(`test № - Example test, ${country} country, ${language} language`, async () => {
-        await test.step('role selection Auth', async () => {
-          await role.setup('Auth');
-        });
-
-        await test.step('step precondition', async () => {
-          await precondition.setup(country, language, 'Commodities trading');
-        });
-        // TODO tasks
-        expect(true).toBe(true);
-      });
-    }
-  }
-});
-test.describe(`Tests for UNAUTHORIZED user`, () => {
-  let precondition: Precondition;
-  let role: Role;
-
-  test.beforeEach(async ({ page }) => {
-    precondition = new Precondition(page);
-    role = new Role(page);
-  });
-
-  for (const country of countries) {
-    for (const language of languages) {
-      test(`test № - Example test, ${country} country, ${language} language`, async () => {
-        await test.step('role selection UnAuth', async () => {
-          await role.setup('UnAuth');
-        });
-
-        await test.step('step precondition', async () => {
-          await precondition.setup(country, language, 'Commodities trading');
-        });
-        // TODO tasks
-        expect(true).toBe(true);
-      });
+  /**
+   * @params testParams.roles - Role USer: "authorized", "unauthorized", "unregistered"
+   * @params testParams.countries - Country - Array of countries
+   * @params testParams.languages - Language - Array of languages
+   * @params testCases - Test Cases - A set of test cases that need to be checked
+   * @params testCases - Test Cases - A set of test cases that need to be checked
+   */
+  for (const role of testParams.roles) {
+    for (const country of testParams.countries) {
+      for (const language of testParams.languages) {
+        for (const testCase of testCases) {
+          test(`Test for ${country} country, ${language} language, and ${role} role, ${testCase.description}`, async () => {
+            const isTestPass = await mainPage.startTest({ role, country, language, testCase });
+            expect(isTestPass, `Failed test case: ${testCase.description}`).toBeTruthy();
+          });
+        }
+      }
     }
   }
 });
