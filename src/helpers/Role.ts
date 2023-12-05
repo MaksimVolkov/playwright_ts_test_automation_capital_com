@@ -13,7 +13,9 @@ export class Role {
   /**
    * Setup role
    *
-   * @param {string} role - value: Auth, UnAuth, NotReg
+   * @param {string} role - value: Auth - authorized
+   *                               UnAuth - unauthorized
+   *                               NotReg - unregistered
    */
   public async setup(role: string): Promise<void> {
     await this.page.goto('/'); // go to main page
@@ -31,7 +33,7 @@ export class Role {
   }
 
   public async setupForAuthorizedUser(): Promise<void> {
-    await this.page.goto('/'); // go to main page
+    // await this.page.goto('/'); // go to main page
     await this.page.waitForLoadState('load');
     await this.page.locator(buttonLogIn).click();
     await this.page.waitForSelector(logIn.logInBlock);
@@ -71,7 +73,6 @@ export class Role {
 
   public async setupForNotRegisteredUser(): Promise<void> {
     await this.page.context().clearCookies();
-    await this.page.goto('/'); // go to main page
     await this.page.waitForURL(process.env.MAIN_URL!);
   }
 }

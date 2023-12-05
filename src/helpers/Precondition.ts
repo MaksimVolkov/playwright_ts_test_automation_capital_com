@@ -11,6 +11,8 @@ const {
   languageSelector,
 } = Selectors.header.countryAndLanguage;
 
+const { education } = Selectors.header as { education: Record<string, string> };
+
 export class Precondition {
   // private readonly page: Page;
   private page: Page;
@@ -19,9 +21,9 @@ export class Precondition {
     this.page = page;
   }
 
-  public async setup(country: string, language: string, testSection: string): Promise<void> {
+  public async setup(country: string, language: string, testSection: string, testPart: string): Promise<void> {
     await this.setupCountryAndLanguage(country, language);
-    await this.navigateToTestSection(testSection);
+    await this.navigateToTestSection(testSection, testPart);
   }
 
   public async setupCountryAndLanguage(country: string, language: string): Promise<void> {
@@ -35,7 +37,10 @@ export class Precondition {
     await this.page.locator(languageSelector(language)).click(); // select a language from the list
     // TODO add expect language
   }
-  public async navigateToTestSection(testSection: string): Promise<void> {
+
+  public async navigateToTestSection(testSection: string, testPart: string): Promise<void> {
+    await this.page.locator(education[testSection]).hover(); // testSection
+    await this.page.locator(education[testPart]).click(); // testPart
     console.log(testSection);
     // TODO Test Section
   }

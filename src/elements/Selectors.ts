@@ -1,4 +1,4 @@
-export const Selectors = {
+export const Selectors: any = {
   header: {
     countryAndLanguage: {
       selectorLinkLogo: 'a[class$="logo"]',
@@ -35,32 +35,32 @@ export const Selectors = {
       securityAtCapital: 'nav_id594',
     },
     education: {
-      education: 'data-type="nav_id96"',
+      education: '.cc-nav__link[data-type="nav_id96"]',
       // 01
-      learningHub: 'nav_id95',
-      theBasicsOfTrading: 'nav_id174',
-      tradingCourses: 'nav_id11',
-      cfdTradingGuide: 'nav_id58',
-      glossaryOfTradingTerms: 'nav_id12',
-      investmateApp: 'nav_id78',
-      toolboxForTraders: 'nav_id696',
+      learningHub: 'a[data-type=nav_id95]',
+      theBasicsOfTrading: 'a[data-type=nav_id174]',
+      tradingCourses: 'a[data-type=nav_id11]',
+      cfdTradingGuide: 'a[data-type=nav_id58]',
+      glossaryOfTradingTerms: 'a[data-type=nav_id12]',
+      investmateApp: 'a[data-type=nav_id78]',
+      toolboxForTraders: 'a[data-type=nav_id696]',
       // 02
-      marketGuides: 'nav_id105',
-      sharesTrading: 'nav_id106',
-      commoditiesTrading: 'nav_id107',
-      forexTrading: 'nav_id108',
-      cryptocurrencyTrading: 'nav_id109',
-      indicesTrading: 'nav_id110',
-      etfTrading: 'nav_id243',
+      marketGuides: 'a[data-type=nav_id105]',
+      sharesTrading: 'a[data-type=nav_id106]',
+      commoditiesTrading: 'a[data-type=nav_id107]',
+      forexTrading: 'a[data-type=nav_id108]',
+      cryptocurrencyTrading: 'a[data-type=nav_id109]',
+      indicesTrading: 'a[data-type=nav_id110]',
+      etfTrading: 'a[data-type=nav_id243]',
       // 03
-      tradingStrategiesGuide: 'nav_id131',
-      dayTrading: 'nav_id526',
-      trendTrading: 'nav_id527',
-      positionTrading: 'nav_id528',
-      swingTrading: 'nav_id529',
-      whatIsAMargin: 'nav_id331',
-      tradingPsychologyGuide: 'nav_id219',
-      powerPattern: 'nav_id695',
+      tradingStrategiesGuide: 'a[data-type=nav_id131]',
+      dayTrading: 'a[data-type=nav_id526]',
+      trendTrading: 'a[data-type=nav_id527]',
+      positionTrading: 'a[data-type=nav_id528]',
+      swingTrading: 'a[data-type=nav_id529]',
+      whatIsAMargin: 'a[data-type=nav_id331]',
+      tradingPsychologyGuide: 'a[data-type=nav_id219]',
+      powerPattern: 'a[data-type=nav_id695]',
     },
     markets: {
       markets: 'data-type="nav_id3"',
@@ -118,12 +118,6 @@ export const Selectors = {
       buttonLogout: 'div[class*="logout-user"]',
     },
   },
-  content: {
-    buttons: {
-      logIn: 'a[data-type="btn_header_login"]',
-      signUp: 'a.cc-header__btn.js_signup',
-    },
-  },
   footer: {},
   forms: {
     logIn: {
@@ -155,4 +149,29 @@ export const Selectors = {
     cookiesBlock: '#onetrust-banner-sdk',
     cookiesAccept: '#onetrust-accept-btn-handler',
   },
+  contentContainer: {
+    mainBanner: {
+      banner: 'div[class="cc-wrap"]>section[class*="cc-banner"]',
+      buttons: {
+        btnStartTrading: 'a.cc-banner__btn:nth-child(1)',
+        btnTryDemo: 'a.cc-banner__btn:nth-child(2)',
+      },
+    },
+    contentBanner: 'div[class="js-bannerSection"]',
+    buttons: {
+      nameBtn: 'a[data-type="btn_header_login"]',
+      nameBtn2: 'a.cc-header__btn.js_signup',
+    },
+  },
+  sidebar: {
+    sidebarLinkList: '',
+    sidebarBanner: '',
+    sidebarWidget: '',
+  },
 };
+export const Header = Selectors.header;
+export const Forms = Selectors.forms;
+export const ContentContainer = Selectors.contentContainer;
+export const Sidebar = Selectors.sidebar;
+export const Cookies = Selectors.cookies;
+export const Footer = Selectors.footer;
