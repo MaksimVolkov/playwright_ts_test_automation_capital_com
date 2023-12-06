@@ -26,32 +26,29 @@ export class MainPage {
     language: string;
     testCase: any;
   }): Promise<boolean> {
-    // Слушаем события консоли
-    this.page.on('console', (msg: { type: () => any; text: () => any }) => {
-      const type = msg.type();
-      const text = msg.text();
-
-      if (type === 'log') {
-        console.log(`%cLog message:%c ${text}`, 'color: green; font-weight: bold;', 'color: inherit;');
-      } else if (type === 'error') {
-        console.error(`%cError message:%c ${text}`, 'color: yellow; font-weight: bold;', 'color: inherit;');
-      } else {
-        // Другие типы сообщений
-        console.log(
-          `%cConsole message of type ${type}:%c ${text}`,
-          'color: blue; font-weight: bold;',
-          'color: inherit;',
-        );
-      }
-    });
+    // Listening to console events
+    // this.page.on('console', (msg: { type: () => any; text: () => any }) => {
+    //   const type = msg.type();
+    //   const text = msg.text();
+    //
+    //   if (type === 'log') {
+    //     console.log(`%cLog message:%c ${text}`, 'color: green; font-weight: bold;', 'color: inherit;');
+    //   } else if (type === 'error') {
+    //     console.error(`%cError message:%c ${text}`, 'color: yellow; font-weight: bold;', 'color: inherit;');
+    //   } else {
+    //     // Other message types
+    //     console.log(
+    //       `%cConsole message of type ${type}:%c ${text}`,
+    //       'color: blue; font-weight: bold;',
+    //       'color: inherit;',
+    //     );
+    //   }
+    // });
+    //
     await this.role.setup(role);
     await this.precondition.setupCountryAndLanguage(country, language);
     await this.precondition.navigateToTestSection(testCase.testSection, testCase.testPart);
     return await this.testCaseScenarioSelector(testCase);
-    // return await this.isElementVisible(testCase.element);
-  }
-  async navigateToMainPage(url: string) {
-    await this.page.goto(url);
   }
 
   async testCaseScenarioSelector(testCase: any) {
@@ -62,11 +59,6 @@ export class MainPage {
     return result;
   }
 
-  async isElementVisible(selector: string) {
-    console.log(selector);
-    return true;
-    // return await this.page.isVisible(selector);
-  }
   async setup() {
     // setting cookies before each test
     // await this.page.context().addCookies([

@@ -157,11 +157,18 @@ export const Selectors: any = {
         btnTryDemo: 'a.cc-banner__btn:nth-child(2)',
       },
     },
-    contentBanner: 'div[class="js-bannerSection"]',
-    buttons: {
-      nameBtn: 'a[data-type="btn_header_login"]',
-      nameBtn2: 'a.cc-header__btn.js_signup',
+    contentBlock: {
+      contentBlock: 'ul[data-type="wdg_go_to_market"]',
+      buttons: {
+        btnStartTrading: 'a[data-type="wdg_go_to_market_btn"]',
+        btnGoToAllCommodities: 'a[data-type="wdg_go_to_market_deeplink"]',
+      },
     },
+  },
+  contentBanner: 'div[class="js-bannerSection"]',
+  buttons: {
+    nameBtn: 'a[data-type="btn_header_login"]',
+    nameBtn2: 'a.cc-header__btn.js_signup',
   },
   sidebar: {
     sidebarLinkList: '',
