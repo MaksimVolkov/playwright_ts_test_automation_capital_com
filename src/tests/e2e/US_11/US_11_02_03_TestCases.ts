@@ -17,4 +17,13 @@ export const testCases = [
     testElement: 'btnTryDemo',
     description: 'Demo button visibility',
   },
+  {
+    us_id: 'US_11.02.03_3',
+    level: 1,
+    testSection: 'education',
+    testPart: 'commoditiesTrading',
+    testContainer: 'contentBlock',
+    testElement: 'btnStartTrading',
+    description: 'Start Trading visibility',
+  },
 ];

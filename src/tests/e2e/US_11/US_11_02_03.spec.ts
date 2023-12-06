@@ -1,7 +1,34 @@
-import { test, expect } from '@playwright/test';
-import { MainPage } from './MainPage';
+import { expect, test } from '@playwright/test';
+import { MainPage } from '../MainPage';
 import { testParams } from './US_11_02_03_TestParams';
 import { testCases } from './US_11_02_03_TestCases';
+
+const licence: any = testParams.licence;
+
+const titleAssembly = (
+  us_id: string,
+  country: string,
+  licence: string,
+  language: string,
+  role: string,
+  description: string,
+) => {
+  return (
+    us_id.toUpperCase() +
+    ' Test: ' +
+    'country ' +
+    country.toUpperCase() +
+    '(' +
+    licence +
+    '), ' +
+    'language ' +
+    language.toUpperCase() +
+    ' role' +
+    role +
+    'for ' +
+    description
+  );
+};
 
 test.describe('Main Page Tests', () => {
   let mainPage: MainPage;
@@ -22,9 +49,16 @@ test.describe('Main Page Tests', () => {
     for (const country of testParams.countries) {
       for (const language of testParams.languages) {
         for (const testCase of testCases) {
-          test(`Test for ${country} country, ${language} language, and ${role} role, ${testCase.description}`, async () => {
+          test(`${titleAssembly(
+            testCase.us_id,
+            country,
+            licence[country],
+            language,
+            role,
+            testCase.description,
+          )}`, async () => {
             const isTestPass = await mainPage.startTest({ role, country, language, testCase });
-            expect(isTestPass, `Failed test case: ${testCase.description}`).toBeTruthy();
+            expect(isTestPass, `Test case pass: ${testCase.description}`).toBeTruthy();
           });
         }
       }
