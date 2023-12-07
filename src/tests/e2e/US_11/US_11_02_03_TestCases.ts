@@ -6,7 +6,7 @@ export const testCases = [
     testPart: 'commoditiesTrading',
     testContainer: 'mainBanner',
     testElement: 'btnStartTrading',
-    description: 'Start Trading button visibility',
+    description: '[Start Trading] button visibility',
   },
   {
     us_id: 'US_11.02.03_2',
@@ -15,7 +15,7 @@ export const testCases = [
     testPart: 'commoditiesTrading',
     testContainer: 'mainBanner',
     testElement: 'btnTryDemo',
-    description: 'Demo button visibility',
+    description: '[Demo button] visibility',
   },
   {
     us_id: 'US_11.02.03_3',
@@ -24,6 +24,15 @@ export const testCases = [
     testPart: 'commoditiesTrading',
     testContainer: 'contentBlock',
     testElement: 'btnStartTrading',
-    description: 'Start Trading visibility',
+    description: '[Start Trading] visibility',
+  },
+  {
+    us_id: 'US_11.02.03_8',
+    level: 1,
+    testSection: 'education',
+    testPart: 'commoditiesTrading',
+    testContainer: 'blockStepsTrading',
+    testElement: 'btnCreateVerifyYourAccount',
+    description: '[1. Create & verify your account] visibility',
   },
 ];
