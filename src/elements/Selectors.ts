@@ -164,6 +164,12 @@ export const Selectors: any = {
         btnGoToAllCommodities: 'a[data-type="wdg_go_to_market_deeplink"]',
       },
     },
+    blockStepsTrading: {
+      blockStepsTrading: 'section[class*="regSteps"]',
+      buttons: {
+        btnCreateVerifyYourAccount: 'i.regSteps__item[data-type="banner_with_steps"]',
+      },
+    },
   },
   contentBanner: 'div[class="js-bannerSection"]',
   buttons: {
