@@ -118,8 +118,8 @@ export const Selectors: any = {
       buttonLogout: 'div[class*="logout-user"]',
     },
   },
-  footer: {},
   forms: {
+    form: 'div.overlay',
     logIn: {
       logInBlock: 'div[id="l_overlay"]>div[class*="modal"]',
       titleH1: 'div[id="l_overlay"] div[class="h1"]',
@@ -157,6 +157,7 @@ export const Selectors: any = {
         btnTryDemo: 'a.cc-banner__btn:nth-child(2)',
       },
     },
+    contentBanner: 'div[class="js-bannerSection"]',
     contentBlock: {
       contentBlock: 'ul[data-type="wdg_go_to_market"]',
       buttons: {
@@ -170,17 +171,13 @@ export const Selectors: any = {
         btnCreateVerifyYourAccount: 'i.regSteps__item[data-type="banner_with_steps"]',
       },
     },
+    sidebar: {
+      sidebarLinkList: '',
+      sidebarBanner: '',
+      sidebarWidget: '',
+    },
   },
-  contentBanner: 'div[class="js-bannerSection"]',
-  buttons: {
-    nameBtn: 'a[data-type="btn_header_login"]',
-    nameBtn2: 'a.cc-header__btn.js_signup',
-  },
-  sidebar: {
-    sidebarLinkList: '',
-    sidebarBanner: '',
-    sidebarWidget: '',
-  },
+  footer: {},
 };
 export const Header = Selectors.header;
 export const Forms = Selectors.forms;
