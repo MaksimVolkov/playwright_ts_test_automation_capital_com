@@ -174,7 +174,8 @@ export const Selectors: any = {
     widget: {
       wdgMostTraded: 'div[data-type="wdg_most_traded"]',
       buttons: {
-        btnTrade: '',
+        btnTradeAll: 'a[data-type="wdg_most_traded_btn"]',
+        btnTrade: (numberChild: number): string => `div.mostTraded__box:nth-child(${numberChild}) a.mostTraded__btn`,
       },
     },
     sidebar: {
