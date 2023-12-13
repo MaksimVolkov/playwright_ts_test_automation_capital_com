@@ -119,7 +119,7 @@ export const Selectors: any = {
     },
   },
   forms: {
-    form: 'div.overlay',
+    activeForm: 'div.overlay:not(.hidden)',
     logIn: {
       logInBlock: 'div[id="l_overlay"]>div[class*="modal"]',
       titleH1: 'div[id="l_overlay"] div[class="h1"]',
@@ -169,6 +169,12 @@ export const Selectors: any = {
       blockStepsTrading: 'section[class*="regSteps"]',
       buttons: {
         btnCreateVerifyYourAccount: 'i.regSteps__item[data-type="banner_with_steps"]',
+      },
+    },
+    widget: {
+      wdgMostTraded: 'div[data-type="wdg_most_traded"]',
+      buttons: {
+        btnTrade: '',
       },
     },
     sidebar: {

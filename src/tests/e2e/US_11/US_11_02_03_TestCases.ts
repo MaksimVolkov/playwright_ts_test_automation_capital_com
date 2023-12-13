@@ -31,7 +31,7 @@ export const testCases = [
   //   level: 1,
   //   testSection: 'education',
   //   testPart: 'commoditiesTrading',
-  //   testContainer: 'WidgetMostTraded',
+  //   testContainer: 'widgetMostTraded',
   //   testElement: 'btnTrade',
   //   description: '[Trade] visibility',
   // },
