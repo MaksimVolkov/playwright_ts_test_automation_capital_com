@@ -38,9 +38,9 @@ export class WidgetMostTraded {
     const arrBtn: [number, number] = await this.randomTwoNumber(await widgetBtnAll.count());
     const isBtnOpenForm: any[] = [];
     for (let i = 0; i < arrBtn.length; i++) {
-      const abv = this.btnTrade(arrBtn[i]);
-      console.log(`%c ${abv} %c`, 'color: red; font-weight: bold;', 'color: inherit;');
-      await abv.click();
+      const btn = this.btnTrade(arrBtn[i]);
+      console.log(`%c ${btn} %c`, 'color: red; font-weight: bold;', 'color: inherit;');
+      await btn.click();
       const formResult = await this.form.formIsVisible();
       isBtnOpenForm.push(formResult);
     }

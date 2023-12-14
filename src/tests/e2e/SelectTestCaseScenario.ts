@@ -2,6 +2,7 @@ import { expect, Page } from '@playwright/test';
 import { ContentContainer, Forms } from '../../elements/Selectors';
 import { Form } from '../../elements/Form';
 import { WidgetMostTraded } from '../../elements/WidgetMostTraded';
+import { MainBanner } from '../../elements/MainBanner';
 
 export class SelectTestCaseScenario {
   private page: Page;
@@ -10,12 +11,14 @@ export class SelectTestCaseScenario {
   private readonly signUp: typeof Forms.signUp;
   private form: Form;
   private widget: WidgetMostTraded;
+  private mainBanner: MainBanner;
 
   constructor(page: Page) {
     this.page = page;
     this.contentContainer = ContentContainer;
     this.form = new Form(page);
     this.widget = new WidgetMostTraded(page);
+    this.mainBanner = new MainBanner(page);
     this.logIn = Forms.logIn;
     this.signUp = Forms.signUp;
   }
@@ -24,11 +27,12 @@ export class SelectTestCaseScenario {
     const container = this.contentContainer[testCase.testContainer];
     await this.page.waitForLoadState('load');
 
+    const mainBanner = await this.mainBanner.checkMainBanner();
     const widget = await this.widget.checkWidgetMostTraded();
     //TODO delete if else
     // console.log(widget);
-    if (widget) {
-      return widget;
+    if (mainBanner && widget) {
+      return mainBanner && widget;
     } else {
       const testElem = this.page.locator(container.buttons[testCase.testElement]);
       await expect(testElem).toBeVisible();
