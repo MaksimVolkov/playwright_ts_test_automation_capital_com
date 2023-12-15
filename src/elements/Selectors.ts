@@ -158,8 +158,8 @@ export const Selectors: any = {
       },
     },
     contentBanner: 'div[class="js-bannerSection"]',
-    contentBlock: {
-      contentBlock: 'ul[data-type="wdg_go_to_market"]',
+    contWdgGoToMarket: {
+      wdgBlock: 'ul[data-type="wdg_go_to_market"]',
       buttons: {
         btnStartTrading: 'a[data-type="wdg_go_to_market_btn"]',
         btnGoToAllCommodities: 'a[data-type="wdg_go_to_market_deeplink"]',

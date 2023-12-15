@@ -44,8 +44,6 @@ export class WidgetMostTraded {
       const formResult = await this.form.formIsVisible();
       isBtnOpenForm.push(formResult);
     }
-    // console.log(isBtnOpenForm[0], isBtnOpenForm[1]);
-    // console.log(isBtnOpenForm[0] && isBtnOpenForm[1]);
     return isBtnOpenForm[0] && isBtnOpenForm[1];
   }
 
