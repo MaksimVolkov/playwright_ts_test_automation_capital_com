@@ -3,6 +3,7 @@ import { ContentContainer, Forms } from '../../elements/Selectors';
 import { Form } from '../../elements/Form';
 import { WidgetMostTraded } from '../../elements/WidgetMostTraded';
 import { MainBanner } from '../../elements/MainBanner';
+import { ContWdgGoToMarket } from '../../elements/ContWdgGoToMarket';
 
 export class SelectTestCaseScenario {
   private page: Page;
@@ -12,6 +13,7 @@ export class SelectTestCaseScenario {
   private form: Form;
   private widget: WidgetMostTraded;
   private mainBanner: MainBanner;
+  private contWdgGoToMarket: ContWdgGoToMarket;
 
   constructor(page: Page) {
     this.page = page;
@@ -19,6 +21,7 @@ export class SelectTestCaseScenario {
     this.form = new Form(page);
     this.widget = new WidgetMostTraded(page);
     this.mainBanner = new MainBanner(page);
+    this.contWdgGoToMarket = new ContWdgGoToMarket(page);
     this.logIn = Forms.logIn;
     this.signUp = Forms.signUp;
   }
@@ -28,9 +31,11 @@ export class SelectTestCaseScenario {
     await this.page.waitForLoadState('load');
 
     const mainBanner = await this.mainBanner.checkMainBanner();
+    const contWdgGoToMarket = await this.contWdgGoToMarket.checkContWdgGoToMarket();
     const widget = await this.widget.checkWidgetMostTraded();
     //TODO delete if else
     // console.log(widget);
+    console.log(`%c ${contWdgGoToMarket} %c`, 'color: red; font-weight: bold;', 'color: inherit;');
     if (mainBanner && widget) {
       return mainBanner && widget;
     } else {
