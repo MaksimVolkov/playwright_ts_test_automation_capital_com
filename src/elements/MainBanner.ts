@@ -4,21 +4,21 @@ import { Form } from './Form';
 
 export class MainBanner {
   page: Page;
-  private mainBanner: { buttons: { btnStartTrading: string; btnTryDemo: string }; banner: string };
-  private readonly banner: Locator;
+  private mainBanner: { buttons: { btnStartTrading: string; btnTryDemo: string }; parentBlock: string };
+  private readonly parentBlock: Locator;
   private readonly btnTryDemo: Locator;
   private readonly btnStartTrading: Locator;
   private form: Form;
   constructor(page: Page) {
     this.page = page;
     this.mainBanner = ContentContainer.mainBanner;
-    this.banner = this.page.locator(this.mainBanner.banner);
+    this.parentBlock = this.page.locator(this.mainBanner.parentBlock);
     this.btnStartTrading = this.page.locator(this.mainBanner.buttons.btnStartTrading);
     this.btnTryDemo = this.page.locator(this.mainBanner.buttons.btnTryDemo);
     this.form = new Form(page);
   }
   async checkMainBanner() {
-    const banner = this.banner;
+    const banner = this.parentBlock;
     const btnStartTrading = this.btnStartTrading;
     const btnTryDemo = this.btnTryDemo;
     return (await this.isVisibleElem(banner, btnStartTrading, btnTryDemo))
