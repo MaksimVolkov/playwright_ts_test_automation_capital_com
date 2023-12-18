@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { MainPage } from '../MainPage';
+import { MainPage } from '../../../helpers/MainPage';
 import { testParams } from './US_11_02_03_TestParams';
 import { testCases } from './US_11_02_03_TestCases';
 

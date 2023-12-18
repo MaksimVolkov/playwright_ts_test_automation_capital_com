@@ -2,6 +2,11 @@ export const testParams = {
   mainPageUrl: 'https://capital.com',
   countries: ['fr'],
   languages: ['fr'],
+  roles: [
+    'NotReg',
+    // 'Auth',
+    // 'UnAuth',
+  ],
   licence: {
     au: 'ASIC',
     ae: 'SCB',
@@ -17,9 +22,4 @@ export const testParams = {
     tw: 'SCB',
     hk: 'SCB',
   },
-  roles: [
-    'NotReg', //unregistered
-    // 'Auth', // authorized
-    // 'UnAuth', // unauthorized
-  ],
 };
