@@ -1,9 +1,9 @@
 import { expect, Page } from '@playwright/test';
-import { ContentContainer, Forms } from '../../elements/Selectors';
-import { Form } from '../../elements/Form';
-import { WidgetMostTraded } from '../../elements/WidgetMostTraded';
-import { MainBanner } from '../../elements/MainBanner';
-import { ContWdgGoToMarket } from '../../elements/ContWdgGoToMarket';
+import { ContentContainer, Forms } from '../elements/Selectors';
+import { Form } from '../elements/Form';
+import { WidgetMostTraded } from '../elements/WidgetMostTraded';
+import { MainBanner } from '../elements/MainBanner';
+import { ContWdgGoToMarket } from '../elements/ContWdgGoToMarket';
 
 export class SelectTestCaseScenario {
   private page: Page;
@@ -35,7 +35,10 @@ export class SelectTestCaseScenario {
     const widget = await this.widget.checkWidgetMostTraded();
     //TODO delete if else
     // console.log(widget);
-    console.log(`%c ${contWdgGoToMarket} %c`, 'color: red; font-weight: bold;', 'color: inherit;');
+    console.log(`%c mainBanner: ${mainBanner} %c`, 'color: red; font-weight: bold;', 'color: inherit;');
+    console.log(`%c contWdgGoToMarket: ${contWdgGoToMarket} %c`, 'color: red; font-weight: bold;', 'color: inherit;');
+    console.log(`%c widget: ${widget} %c`, 'color: red; font-weight: bold;', 'color: inherit;');
+
     if (mainBanner && widget) {
       return mainBanner && widget;
     } else {

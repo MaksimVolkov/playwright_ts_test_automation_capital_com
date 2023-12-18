@@ -1,14 +1,14 @@
-| Current New Name      | Real name                     | Name                                                                            | --- |
-| --------------------- | ----------------------------- | ------------------------------------------------------------------------------- | --- |
-| MainBanner            | cc-banner or top_banner       | Main banner                                                                     |     |
-| ContWdgGoToMarket     | list-row or wdg_go_to_market  | Content block                                                                   |     |
-| MostTradedWidget      | mostTraded or wdg_most_traded | Widget "Most Traded"                                                            |     |
-| RegStepsTrading       | regSteps                      | Block "Steps trading" (Still looking for a platform/broker you can trust?)      |     |
-| OpenAccount3MinBanner |                               | Block "Open a trading account in less than 3 minutes"                           |     |
-| OpenAccount3MBanner   |                               | Block "Open a trading account in less than 3 min"                               |     |
-| TestTourBanner        |                               | Block "Would you like a test tour? Open a demo account to practice your skills" |     |
-| LearnToTradeBanner    |                               | Block "New to trading? Learn to trade with Capital.com"                         |     |
-| ReadyToTradeBanner    |                               | Block "Are you ready to trade? Create the account in a few minutes"             |     |
-| TestDriveBanner       |                               | Block "Want a test drive?"                                                      |     |
-| StickyBar             | stickyBar or sticky_bar       | Sticky bar "Start trading on"                                                   |     |
-| TradToolBanner        | tool\_\_banner                | Banner [Trading Instrument]                                                     |     |
+|    |     | lev | Current New Name Class | Real name selectors           | Buttons                                         | Name                                                                            | --- |
+|----|-----|-----|--------------------------|-------------------------------|-------------------------------------------------|---------------------------------------------------------------------------------|-----|
+| 01 | ✔️  | 1   | MainBanner              | cc-banner or top_banner       | [Start trading], [Try Demo]                     | Main banner                                                                     |     |
+| 02 | ✔️  | 1   | ContWdgGoToMarket       | list-row or wdg_go_to_market  | [Start trading]                                 | Content block                                                                   |     |
+| 03 | ✔️  | 1   | MostTradedWidget        | mostTraded or wdg_most_traded | [Trade]                                         | Widget "Most Traded"                                                            |     |
+| 04 | ✖️  | 1   | RegStepsTrading         | regSteps                      | [1. Create & verify your account]               | Block "Steps trading" (Still looking for a platform/broker you can trust?)      |     |
+| 05 | ✖️  | 1   | OpenAccount3MinBanner   |                               | [Create account]                                | Block "Open a trading account in less than 3 minutes"                           |     |
+| 06 | ✖️  | 1   | OpenAccount3MBanner     |                               | [Create account]                                | Block "Open a trading account in less than 3 min"                               |     |
+| 07 | ✖️  | 1   | TestTourBanner          |                               | [Free practice] or [Free trial]                 | Block "Would you like a test tour? Open a demo account to practice your skills" |     |
+| 08 | ✖️  | 1   | LearnToTradeBanner      |                               | [Try Free Demo] or [Practice free] or [Try now] | Block "New to trading? Learn to trade with Capital.com"                         |     |
+| 09 | ✖️  | 1   | ReadyToTradeBanner      |                               | [Trade now]                                     | Block "Are you ready to trade? Create the account in a few minutes"             |     |
+| 10 | ✖️  | 1   | TestDriveBanner         |                               | [Try demo] or [Try Free Account]                | Block "Want a test drive?"                                                      |     |
+| 11 | ✖️  | 1   | StickyBar               | stickyBar or sticky_bar       | [Get Started]                                   | Sticky bar "Start trading on"                                                   |     |
+| 12 | ✖️  | 1   | TradToolBanner          | tool\_\_banner                | [Sell], [Buy]                                   | Banner [Trading Instrument]                                                     |     |

@@ -1,5 +1,5 @@
-import { Precondition } from '../../helpers/Precondition';
-import { Role } from '../../helpers/Role';
+import { Precondition } from './Precondition';
+import { Role } from './Role';
 import { SelectTestCaseScenario } from './SelectTestCaseScenario';
 
 export class MainPage {
