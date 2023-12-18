@@ -31,13 +31,7 @@ export class ContWdgGoToMarket {
     );
   }
   async clickBtn(btnStartTrading: any) {
-    const arrBtn: any[] = [await btnStartTrading];
-    const isBtnOpenForm: any[] = [];
-    for (let i = 0; i < arrBtn.length; i++) {
-      await arrBtn[i].click();
-      const formResult = await this.form.formIsVisible();
-      isBtnOpenForm.push(formResult);
-    }
-    return isBtnOpenForm[0] && isBtnOpenForm[1];
+    await btnStartTrading.click();
+    return await this.form.formIsVisible();
   }
 }

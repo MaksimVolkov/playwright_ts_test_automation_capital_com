@@ -1,6 +1,7 @@
 import { Locator, Page } from '@playwright/test';
 import { ContentContainer } from './Selectors';
 import { Form } from './Form';
+import { getRandomNumber } from '../helpers/funcHelpers';
 
 export class WidgetMostTraded {
   private page: Page;
@@ -35,7 +36,7 @@ export class WidgetMostTraded {
   }
 
   async clickBtnTrade(widgetBtnAll: any) {
-    const arrBtn: [number, number] = await this.randomTwoNumber(await widgetBtnAll.count());
+    const arrBtn: number[] = getRandomNumber(await widgetBtnAll.count(), 2);
     const isBtnOpenForm: any[] = [];
     for (let i = 0; i < arrBtn.length; i++) {
       const btn = this.btnTrade(arrBtn[i]);
@@ -45,18 +46,5 @@ export class WidgetMostTraded {
       isBtnOpenForm.push(formResult);
     }
     return isBtnOpenForm[0] && isBtnOpenForm[1];
-  }
-
-  async randomTwoNumber(maxNumber: number): Promise<[number, number]> {
-    if (maxNumber < 2) throw new Error('The maximum number must be at least 2');
-    const getRandomNumber = () => Math.floor(Math.random() * maxNumber) + 1;
-    const randomNumber1 = getRandomNumber();
-    let randomNumber2 = getRandomNumber();
-    while (randomNumber2 === randomNumber1) {
-      randomNumber2 = getRandomNumber();
-    }
-    console.log(`%c ${randomNumber1} | ${randomNumber2} %c`, 'color: red; font-weight: bold;', 'color: inherit;');
-
-    return [randomNumber1, randomNumber2];
   }
 }
