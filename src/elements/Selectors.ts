@@ -151,7 +151,7 @@ export const Selectors: any = {
   },
   contentContainer: {
     mainBanner: {
-      banner: 'div[class="cc-wrap"]>section[class*="cc-banner"]',
+      parentBlock: 'div[class="cc-wrap"]>section[class*="cc-banner"]',
       buttons: {
         btnStartTrading: 'a.cc-banner__btn:nth-child(1)',
         btnTryDemo: 'a.cc-banner__btn:nth-child(2)',
@@ -159,20 +159,20 @@ export const Selectors: any = {
     },
     contentBanner: 'div[class="js-bannerSection"]',
     contWdgGoToMarket: {
-      wdgBlock: 'ul[data-type="wdg_go_to_market"]',
+      parentBlock: 'ul[data-type="wdg_go_to_market"]',
       buttons: {
         btnStartTrading: 'a[data-type="wdg_go_to_market_btn"]',
         btnGoToAllCommodities: 'a[data-type="wdg_go_to_market_deeplink"]',
       },
     },
-    blockStepsTrading: {
-      blockStepsTrading: 'section[class*="regSteps"]',
+    regStepsTrading: {
+      parentBlock: 'section[class*="regSteps"]',
       buttons: {
         btnCreateVerifyYourAccount: 'i.regSteps__item[data-type="banner_with_steps"]',
       },
     },
     widget: {
-      wdgMostTraded: 'div[data-type="wdg_most_traded"]',
+      parentBlock: 'div[data-type="wdg_most_traded"]',
       buttons: {
         btnTradeAll: 'a[data-type="wdg_most_traded_btn"]',
         btnTrade: (numberChild: number): string => `div.mostTraded__box:nth-child(${numberChild}) a.mostTraded__btn`,

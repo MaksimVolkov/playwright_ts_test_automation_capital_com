@@ -4,6 +4,7 @@ import { Form } from '../elements/Form';
 import { WidgetMostTraded } from '../elements/WidgetMostTraded';
 import { MainBanner } from '../elements/MainBanner';
 import { ContWdgGoToMarket } from '../elements/ContWdgGoToMarket';
+import { RegStepsTrading } from '../elements/RegStepsTrading';
 
 export class SelectTestCaseScenario {
   private page: Page;
@@ -14,6 +15,7 @@ export class SelectTestCaseScenario {
   private widget: WidgetMostTraded;
   private mainBanner: MainBanner;
   private contWdgGoToMarket: ContWdgGoToMarket;
+  private regStepsTrading: RegStepsTrading;
 
   constructor(page: Page) {
     this.page = page;
@@ -22,6 +24,7 @@ export class SelectTestCaseScenario {
     this.widget = new WidgetMostTraded(page);
     this.mainBanner = new MainBanner(page);
     this.contWdgGoToMarket = new ContWdgGoToMarket(page);
+    this.regStepsTrading = new RegStepsTrading(page);
     this.logIn = Forms.logIn;
     this.signUp = Forms.signUp;
   }
@@ -33,12 +36,15 @@ export class SelectTestCaseScenario {
     const mainBanner = await this.mainBanner.checkMainBanner();
     const contWdgGoToMarket = await this.contWdgGoToMarket.checkContWdgGoToMarket();
     const widget = await this.widget.checkWidgetMostTraded();
+    const regStepsTrading = await this.regStepsTrading.checkElement();
+
+    console.log(`%c MainBanner: ${mainBanner} %c`, 'color: red; font-weight: bold;', 'color: inherit;');
+    console.log(`%c ContWdgGoToMarket: ${contWdgGoToMarket} %c`, 'color: red; font-weight: bold;', 'color: inherit;');
+    console.log(`%c Widget: ${widget} %c`, 'color: red; font-weight: bold;', 'color: inherit;');
+    console.log(`%c RegStepsTrading: ${regStepsTrading} %c`, 'color: red; font-weight: bold;', 'color: inherit;');
+
     //TODO delete if else
     // console.log(widget);
-    console.log(`%c mainBanner: ${mainBanner} %c`, 'color: red; font-weight: bold;', 'color: inherit;');
-    console.log(`%c contWdgGoToMarket: ${contWdgGoToMarket} %c`, 'color: red; font-weight: bold;', 'color: inherit;');
-    console.log(`%c widget: ${widget} %c`, 'color: red; font-weight: bold;', 'color: inherit;');
-
     if (mainBanner && widget) {
       return mainBanner && widget;
     } else {

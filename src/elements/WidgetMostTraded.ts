@@ -10,7 +10,7 @@ export class WidgetMostTraded {
       btnTradeAll: string;
       btnTrade: (numberChild: number) => string;
     };
-    wdgMostTraded: string;
+    parentBlock: string;
   };
   private readonly widgetBlock: Locator;
   private readonly widgetBtnAll: Locator;
@@ -20,7 +20,7 @@ export class WidgetMostTraded {
   constructor(page: Page) {
     this.page = page;
     this.widget = ContentContainer.widget;
-    this.widgetBlock = this.page.locator(this.widget.wdgMostTraded);
+    this.widgetBlock = this.page.locator(this.widget.parentBlock);
     this.widgetBtnAll = this.page.locator(this.widget.buttons.btnTradeAll);
     this.btnTrade = (numberChild: number) => this.page.locator(this.widget.buttons.btnTrade(numberChild));
     this.form = new Form(page);
