@@ -157,7 +157,6 @@ export const Selectors: any = {
         btnTryDemo: 'a.cc-banner__btn:nth-child(2)',
       },
     },
-    contentBanner: 'div[class="js-bannerSection"]',
     contWdgGoToMarket: {
       parentBlock: 'ul[data-type="wdg_go_to_market"]',
       buttons: {
@@ -179,10 +178,271 @@ export const Selectors: any = {
       },
     },
     sidebar: {
-      sidebarLinkList: '',
+      sidebarLinkList: {
+        parentBlock: 'div[data-type="sidebar_deeplinks"]',
+        links: 'a[data-type="sidebar_deeplink"]:not(.active):not(:empty)',
+        selectedLink: (numberChild: number): string =>
+          `a[data-type="sidebar_deeplink"]:not(.active):not(:empty):nth-child(${numberChild})`,
+      },
       sidebarBanner: '',
       sidebarWidget: '',
     },
+    stickyBar: {
+      parentBlock: 'div.stickyBar',
+      productLink: 'div.encStickyBar__wrap a[class="blueLink"]',
+      buttons: {
+        btnGetStarted: 'a[data-type="sticky_bar"]',
+      },
+    },
+    tradToolBanner: {
+      parentBlock: '',
+      buttons: {
+        btnSell: '',
+        btnBuy: '',
+      },
+    },
+    contentBanners: 'div[class="js-bannerSection"]',
+    // banners: {
+    //   parentBlock: 'div[class="js-bannerSection"]',
+    //   vert: {
+    //     166: {
+    //       parentBlock: 'div[data-id="103"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     168: {
+    //       parentBlock: 'div[data-id="168"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     196: {
+    //       parentBlock: 'div[data-id="196"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     198: {
+    //       parentBlock: 'div[data-id="198"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     221: {
+    //       parentBlock: 'div[data-id="221"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     222: {
+    //       parentBlock: 'div[data-id="222"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     251: {
+    //       parentBlock: 'div[data-id="251"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     253: {
+    //       parentBlock: 'div[data-id="253"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     282: {
+    //       parentBlock: 'div[data-id="282"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     292: {
+    //       parentBlock: 'div[data-id="292"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     293: {
+    //       parentBlock: 'div[data-id="293"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     377: {
+    //       parentBlock: 'div[data-id="377"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     380: {
+    //       parentBlock: 'div[data-id="380"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     381: {
+    //       parentBlock: 'div[data-id="381"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     388: {
+    //       parentBlock: 'div[data-id="388"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     389: {
+    //       parentBlock: 'div[data-id="389"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     391: {
+    //       parentBlock: 'div[data-id="391"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     393: {
+    //       parentBlock: 'div[data-id="393"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     425: {
+    //       parentBlock: 'div[data-id="425"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     426: {
+    //       parentBlock: 'div[data-id="426"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     505: {
+    //       parentBlock: 'div[data-id="505"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //   },
+    //   hor: {
+    //     103: {
+    //       parentBlock: 'div[data-id="103"]',
+    //       buttons: {
+    //         btn: 'a[data-type="b_hor_s1_103"]',
+    //       },
+    //     },
+    //     167: {
+    //       parentBlock: 'div[data-id="167"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     169: {
+    //       parentBlock: 'div[data-id="169"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     197: {
+    //       parentBlock: 'div[data-id="197"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     199: {
+    //       parentBlock: 'div[data-id="199"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     220: {
+    //       parentBlock: 'div[data-id="220"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     223: {
+    //       parentBlock: 'div[data-id="223"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     252: {
+    //       parentBlock: 'div[data-id="252"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     254: {
+    //       parentBlock: 'div[data-id="254"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     281: {
+    //       parentBlock: 'div[data-id="281"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     291: {
+    //       parentBlock: 'div[data-id="291"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     294: {
+    //       parentBlock: 'div[data-id="294"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     378: {
+    //       parentBlock: 'div[data-id="378"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     379: {
+    //       parentBlock: 'div[data-id="379"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     390: {
+    //       parentBlock: 'div[data-id="390"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     392: {
+    //       parentBlock: 'div[data-id="392"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     428: {
+    //       parentBlock: 'div[data-id="428"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //     430: {
+    //       parentBlock: 'div[data-id="430"]',
+    //       buttons: {
+    //         btn: '',
+    //       },
+    //     },
+    //   },
+    // },
   },
   footer: {},
 };

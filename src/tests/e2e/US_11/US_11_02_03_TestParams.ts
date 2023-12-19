@@ -1,7 +1,7 @@
 export const testParams = {
   mainPageUrl: 'https://capital.com',
-  countries: ['fr'],
-  languages: ['fr'],
+  countries: ['de'],
+  languages: ['de'],
   roles: [
     'NotReg',
     // 'Auth',
