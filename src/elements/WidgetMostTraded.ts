@@ -25,17 +25,17 @@ export class WidgetMostTraded {
     this.btnTrade = (numberChild: number) => this.page.locator(this.widget.buttons.btnTrade(numberChild));
     this.form = new Form(page);
   }
-  async checkWidgetMostTraded() {
+  async checkElement() {
     const widgetBtnAll = this.widgetBtnAll;
-    const isVisibleElemAndChild = await this.isVisibleWidget(this.widgetBlock, widgetBtnAll);
-    const clickBtnTrade = await this.clickBtnTrade(widgetBtnAll);
+    const isVisibleElemAndChild = await this.isVisibleElem(this.widgetBlock, widgetBtnAll);
+    const clickBtnTrade = await this.clickBtn(widgetBtnAll);
     return isVisibleElemAndChild && clickBtnTrade;
   }
-  async isVisibleWidget(widget: any, widgetBtnAll: any) {
+  async isVisibleElem(widget: any, widgetBtnAll: any) {
     return (await widget.isVisible()) && (await widgetBtnAll.count()) > 2;
   }
 
-  async clickBtnTrade(widgetBtnAll: any) {
+  async clickBtn(widgetBtnAll: any) {
     const arrBtn: number[] = getRandomNumber(await widgetBtnAll.count(), 2);
     const isBtnOpenForm: any[] = [];
     for (let i = 0; i < arrBtn.length; i++) {

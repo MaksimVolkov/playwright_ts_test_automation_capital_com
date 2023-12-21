@@ -11,13 +11,13 @@ export class MainBanner {
   private form: Form;
   constructor(page: Page) {
     this.page = page;
+    this.form = new Form(page);
     this.mainBanner = ContentContainer.mainBanner;
     this.parentBlock = this.page.locator(this.mainBanner.parentBlock);
     this.btnStartTrading = this.page.locator(this.mainBanner.buttons.btnStartTrading);
     this.btnTryDemo = this.page.locator(this.mainBanner.buttons.btnTryDemo);
-    this.form = new Form(page);
   }
-  async checkMainBanner() {
+  async checkElement() {
     const banner = this.parentBlock;
     const btnStartTrading = this.btnStartTrading;
     const btnTryDemo = this.btnTryDemo;
@@ -36,7 +36,11 @@ export class MainBanner {
 
     await btnTryDemo.click();
     isBtnOpenForm.push(await this.form.formIsVisible());
-
+    console.log(
+      `%c btnStartTrading: ${isBtnOpenForm[0]} btnTryDemo: ${isBtnOpenForm[1]} %c`,
+      'color: orange; font-weight: bold;',
+      'color: inherit;',
+    );
     return isBtnOpenForm[0] && isBtnOpenForm[1];
   }
 }
