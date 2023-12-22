@@ -1,12 +1,13 @@
 import { expect, test } from '@playwright/test';
-import { MainPage } from '../../../helpers/MainPage';
-import { testParams } from './US_11_02_03_TestParams';
-import { testCases } from './US_11_02_03_TestCases';
+import { MainPage } from '../../../../helpers/MainPage';
+import { testParams } from './TestParams';
+import { testCases } from './TestCases';
 
 const licence: any = testParams.licence;
 
 const titleAssembly = (
   us_id: string,
+  testCase: string,
   country: string,
   licence: string,
   language: string,
@@ -16,21 +17,22 @@ const titleAssembly = (
   return (
     us_id.toUpperCase() +
     ' Test: ' +
-    'country ' +
+    testCase +
+    ' cty ' +
     country.toUpperCase() +
     '(' +
     licence +
     '), ' +
-    'language ' +
+    ' lan: ' +
     language.toUpperCase() +
-    ' role' +
+    ' role: ' +
     role +
-    'for ' +
+    ' for: ' +
     description
   );
 };
 
-test.describe('Main Page Tests', () => {
+test.describe('US_11_02.03', () => {
   let mainPage: MainPage;
 
   test.beforeEach(async ({ page }) => {
@@ -51,6 +53,7 @@ test.describe('Main Page Tests', () => {
         for (const testCase of testCases) {
           test(`${titleAssembly(
             testCase.us_id,
+            testCase.testContainer,
             country,
             licence[country],
             language,

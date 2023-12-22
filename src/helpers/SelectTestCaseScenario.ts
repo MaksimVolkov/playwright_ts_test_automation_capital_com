@@ -26,43 +26,28 @@ export class SelectTestCaseScenario {
   }
   async runTestFirstLevelScenario(testCase: any) {
     //
-    const container = this.contentContainer[testCase.testContainer];
-    console.log(container);
-    const data: any[] = [];
+    // const container = this.contentContainer[testCase.testContainer];
+    // console.log(container);
+    const result: any[] = [];
 
-    const methodNames: Array<keyof AllElements> = ['mainBanner', 'contWdgGoToMarket', 'regStepsTrading', 'widget'];
+    const methodNames: Array<keyof AllElements> = [testCase.testContainer];
+    // const methodNames: Array<keyof AllElements> = ['mainBanner', 'contWdgGoToMarket', 'regStepsTrading', 'widget'];
+
     for (const methodName of methodNames) {
       const resultData = await this.allElements[methodName]();
       console.log(`%c ${resultData} %c`, 'color: yellow; font-weight: bold;', 'color: inherit;');
-      data.push(resultData);
+      result.push(resultData);
     }
 
-    for (const item of data) {
+    for (const item of result) {
       console.log(`%c ${item} %c`, 'color: pink; font-weight: bold;', 'color: inherit;');
     }
-    return !data.includes(false);
-    // TODO delete
-    // const test1 = await this.allElements.mainBanner();
-    // const test2 = await this.allElements.regStepsTrading();
-    // return test1 && test2;
-
-    //
-    // // console.log(widget);
-    // if (mainBanner && widget) {
-    //   return mainBanner && widget;
-    // } else {
-    //   const testElem = this.page.locator(container.buttons[testCase.testElement]);
-    //   await expect(testElem).toBeVisible();
-    //   await testElem.click();
-    //   const formVisible = await this.form.formIsVisible();
-    //   expect(formVisible).toBeTruthy();
-    //   return testElem && formVisible;
-    // }
-    // return await testElem.count();
+    return !result.includes(false);
   }
   async runTestSecondLevelScenario(testCase: any) {
-    const container = this.contentContainer[testCase.testContainer];
-    console.log(container);
+    // const container = this.contentContainer[testCase.testContainer];
+    // console.log(container);
+
     const focusPageUrl = this.page.url();
     const result: any[] = [];
     // const arrBtn: number[] = getRandomNumber(await this.sidebarLinks.count());
@@ -70,17 +55,29 @@ export class SelectTestCaseScenario {
     for (let i = 0; i < 3; i++) {
       // const link = this.selectedLink(getRandomNumber(await this.sidebarLinks.count())[0]);
       const numberChild = childN[i] === 1 ? childN[i] + 1 : childN[i];
+
       const link = this.selectedLink(numberChild);
       const linkUrl = await link.getAttribute('href');
       await link.click();
       await this.page.waitForURL(`${linkUrl}`, { waitUntil: 'load' });
+
       // await this.page.waitForLoadState('load');
       // result.push(await this.allElements.letsCheck());
+
+      const methodNames: Array<keyof AllElements> = [testCase.testContainer];
+      // const methodNames: Array<keyof AllElements> = ['mainBanner', 'contWdgGoToMarket', 'regStepsTrading', 'widget'];
+
+      for (const methodName of methodNames) {
+        const resultData = await this.allElements[methodName]();
+        console.log(`%c ${resultData} %c`, 'color: yellow; font-weight: bold;', 'color: inherit;');
+        result.push(resultData);
+      }
+
       console.log(`%c ${i} ${result} %c`, 'color: pink; font-weight: bold;', 'color: inherit;');
       await this.page.goBack();
       await this.page.waitForURL(`${focusPageUrl}`, { waitUntil: 'load' });
     }
-    return result[0] && result[1] && result[2];
+    return !result.includes(false);
     // const testFocusBlock = this.contentContainer[testCase.testElement];
     // return testFocusBlock.isVisible();
   }
