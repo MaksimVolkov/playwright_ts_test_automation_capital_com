@@ -21,11 +21,11 @@ export class MainBanner {
     const banner = this.parentBlock;
     const btnStartTrading = this.btnStartTrading;
     const btnTryDemo = this.btnTryDemo;
-    return (await this.isVisibleElem(banner, btnStartTrading, btnTryDemo))
+    return (await this.isVisibleElement(banner, btnStartTrading, btnTryDemo))
       ? await this.clickBtn(btnStartTrading, btnTryDemo)
       : 'The Main Banner and elements is not Visible';
   }
-  async isVisibleElem(banner: Locator, btnStartTrading: Locator, btnTryDemo: Locator) {
+  async isVisibleElement(banner: Locator, btnStartTrading: Locator, btnTryDemo: Locator) {
     return (await banner.isVisible()) && (await btnStartTrading.isVisible()) && (await btnTryDemo.isVisible());
   }
   async clickBtn(btnStartTrading: Locator, btnTryDemo: Locator) {

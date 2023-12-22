@@ -19,8 +19,8 @@ export class Form {
     const logInModal = this.page.locator(this.formLogIn.logInBlock);
     const currentUrl = this.page.url();
 
-    console.log(signUpModal + ' | ' + logInModal + ' | ' + currentUrl);
-    console.log(await signUpModal.isVisible(), await logInModal.isVisible());
+    // console.log(signUpModal + ' | ' + logInModal + ' | ' + currentUrl);
+    // console.log(await signUpModal.isVisible(), await logInModal.isVisible());
 
     const isSignUpVisible = (await signUpModal.count()) === 1 || currentUrl.includes('/trading/signup');
     const isLogInVisible = (await logInModal.count()) === 1 || currentUrl.includes('/trading/login');
@@ -32,7 +32,7 @@ export class Form {
       await this.page.locator(this.formLogIn.cancelButton).click();
       console.log('%c modal form LOGIN is visible %c', 'color: green; font-weight: bold;', 'color: inherit;');
     } else {
-      console.log('%c modal forms is not visible %c', 'color: orange; font-weight: bold;', 'color: inherit;');
+      console.log('%c modal FORMS IS NOT visible %c', 'color: orange; font-weight: bold;', 'color: inherit;');
     }
 
     return isSignUpVisible || isLogInVisible;

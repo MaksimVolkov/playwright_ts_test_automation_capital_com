@@ -3,6 +3,7 @@ import { WidgetMostTraded } from './WidgetMostTraded';
 import { MainBanner } from './MainBanner';
 import { ContWdgGoToMarket } from './ContWdgGoToMarket';
 import { RegStepsTrading } from './RegStepsTrading';
+import { StickyBar } from './StickyBar';
 
 export class AllElements {
   private readonly page: Page;
@@ -24,9 +25,13 @@ export class AllElements {
     const regStepsTrading = new RegStepsTrading(this.page);
     return await regStepsTrading.checkElement();
   }
-  async widget() {
-    const widget = new WidgetMostTraded(this.page);
-    return await widget.checkElement();
+  async widgetMostTraded() {
+    const widgetMostTraded = new WidgetMostTraded(this.page);
+    return await widgetMostTraded.checkElement();
+  }
+  async stickyBar() {
+    const stickyBar = new StickyBar(this.page);
+    return await stickyBar.checkElement();
   }
 }
 // element check
