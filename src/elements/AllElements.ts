@@ -1,42 +1,33 @@
 import { Page } from '@playwright/test';
-import { Form } from './Form';
 import { WidgetMostTraded } from './WidgetMostTraded';
 import { MainBanner } from './MainBanner';
 import { ContWdgGoToMarket } from './ContWdgGoToMarket';
 import { RegStepsTrading } from './RegStepsTrading';
 
 export class AllElements {
-  private page: Page;
-  private form: Form;
-  private mainBanner: MainBanner;
-  private contWdgGoToMarket: ContWdgGoToMarket;
-  private regStepsTrading: RegStepsTrading;
-  private widget: WidgetMostTraded;
+  private readonly page: Page;
   constructor(page: Page) {
     this.page = page;
-    this.form = new Form(page);
-    this.mainBanner = new MainBanner(page);
-    this.contWdgGoToMarket = new ContWdgGoToMarket(page);
-    this.regStepsTrading = new RegStepsTrading(page);
-    this.widget = new WidgetMostTraded(page);
+    // this.classMainBanner = new MainBanner(page);
   }
-  async letsCheck() {
-    const mainBanner = await this.mainBanner.checkMainBanner();
-    const contWdgGoToMarket = await this.contWdgGoToMarket.checkContWdgGoToMarket();
-    const regStepsTrading = await this.regStepsTrading.checkElement();
-    const widget = await this.widget.checkWidgetMostTraded();
 
-    console.log(`%c MainBanner: ${mainBanner} %c`, 'color: red; font-weight: bold;', 'color: inherit;');
-    console.log(`%c ContWdgGoToMarket: ${contWdgGoToMarket} %c`, 'color: red; font-weight: bold;', 'color: inherit;');
-    console.log(`%c RegStepsTrading: ${regStepsTrading} %c`, 'color: red; font-weight: bold;', 'color: inherit;');
-    console.log(`%c Widget: ${widget} %c`, 'color: red; font-weight: bold;', 'color: inherit;');
-
-    return mainBanner && contWdgGoToMarket && regStepsTrading && widget;
+  async mainBanner() {
+    // return await this.classMainBanner.checkElement();
+    const mainBanner = new MainBanner(this.page);
+    return await mainBanner.checkElement();
   }
-  async checkSpecificElement() {}
-  async checkSpecificSet() {}
-  async checkSpecificUserStory() {}
-  async checkEverything() {}
+  async contWdgGoToMarket() {
+    const contWdgGoToMarket = new ContWdgGoToMarket(this.page);
+    return await contWdgGoToMarket.checkElement();
+  }
+  async regStepsTrading() {
+    const regStepsTrading = new RegStepsTrading(this.page);
+    return await regStepsTrading.checkElement();
+  }
+  async widget() {
+    const widget = new WidgetMostTraded(this.page);
+    return await widget.checkElement();
+  }
 }
 // element check
 // checking a specific set of elements
