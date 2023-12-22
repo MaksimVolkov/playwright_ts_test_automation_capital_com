@@ -17,7 +17,7 @@ export class ContWdgGoToMarket {
     this.btnGoToAllCommodities = this.page.locator(this.wdgGoToMarket.buttons.btnGoToAllCommodities);
     this.form = new Form(page);
   }
-  async checkContWdgGoToMarket() {
+  async checkElement() {
     const parentBlock = this.parentBlock;
     const btnStartTrading = this.btnStartTrading;
     const btnGoToAllCommodities = this.btnGoToAllCommodities;
@@ -32,8 +32,8 @@ export class ContWdgGoToMarket {
       (await btnGoToAllCommodities.count()) > 0
     );
   }
-  async clickBtn(btnStartTrading: any) {
-    await btnStartTrading.click();
+  async clickBtn(focusElement: any) {
+    await focusElement.click();
     return await this.form.formIsVisible();
   }
 }

@@ -1,13 +1,14 @@
 export const testCases = [
-  // {
-  //   us_id: 'US_11.02.03_01',
-  //   level: 1,
-  //   testSection: 'education',
-  //   testPart: 'commoditiesTrading',
-  //   testContainer: 'mainBanner',
-  //   testElement: 'btnStartTrading',
-  //   description: '[Start Trading] button visibility',
-  // },
+  {
+    us_id: 'US_11.02.03_01',
+    level: 1,
+    testSection: 'education',
+    testPart: 'commoditiesTrading',
+    testContainer: 'mainBanner',
+    testElement: 'btnStartTrading',
+    testClass: 'MainBanner',
+    description: '[Start Trading] button visibility',
+  },
   // {
   //   us_id: 'US_11.02.03_02',
   //   level: 1,
@@ -98,15 +99,15 @@ export const testCases = [
   //   testElement: 'btn',
   //   description: '',
   // },
-  {
-    us_id: 'US_11.02.03.01_01',
-    level: 2,
-    testSection: 'education',
-    testPart: 'commoditiesTrading',
-    testContainer: 'StickyBar',
-    testElement: 'btn',
-    description: '',
-  },
+  // {
+  //   us_id: 'US_11.02.03.01_01',
+  //   level: 2,
+  //   testSection: 'education',
+  //   testPart: 'commoditiesTrading',
+  //   testContainer: 'StickyBar',
+  //   testElement: 'btn',
+  //   description: '',
+  // },
   // {
   //   us_id: 'US_11.02.03.01_02',
   //   level: 2,

@@ -5,9 +5,9 @@ import { AllElements } from '../elements/AllElements';
 import { getRandomNumber } from './funcHelpers';
 
 export class SelectTestCaseScenario {
-  private page: Page;
+  private readonly page: Page;
+  private readonly allElements: AllElements;
   private readonly contentContainer: typeof ContentContainer;
-  private allElements: AllElements;
   private sidebarLinks: Locator;
   private sidebarLinkList: {
     parentBlock: string;
@@ -18,7 +18,7 @@ export class SelectTestCaseScenario {
 
   constructor(page: Page) {
     this.page = page;
-    this.allElements = new AllElements(page);
+    this.allElements = new AllElements(this.page);
     this.contentContainer = ContentContainer;
     this.sidebarLinkList = ContentContainer.sidebar.sidebarLinkList;
     this.sidebarLinks = this.page.locator(this.sidebarLinkList.links);
@@ -28,10 +28,25 @@ export class SelectTestCaseScenario {
     //
     const container = this.contentContainer[testCase.testContainer];
     console.log(container);
-    // await this.page.waitForLoadState('load');
-    return await this.allElements.letsCheck();
+    const data: any[] = [];
 
-    // //TODO delete if else
+    const methodNames: Array<keyof AllElements> = ['mainBanner', 'contWdgGoToMarket', 'regStepsTrading', 'widget'];
+    for (const methodName of methodNames) {
+      const resultData = await this.allElements[methodName]();
+      console.log(`%c ${resultData} %c`, 'color: yellow; font-weight: bold;', 'color: inherit;');
+      data.push(resultData);
+    }
+
+    for (const item of data) {
+      console.log(`%c ${item} %c`, 'color: pink; font-weight: bold;', 'color: inherit;');
+    }
+    return !data.includes(false);
+    // TODO delete
+    // const test1 = await this.allElements.mainBanner();
+    // const test2 = await this.allElements.regStepsTrading();
+    // return test1 && test2;
+
+    //
     // // console.log(widget);
     // if (mainBanner && widget) {
     //   return mainBanner && widget;
@@ -60,7 +75,7 @@ export class SelectTestCaseScenario {
       await link.click();
       await this.page.waitForURL(`${linkUrl}`, { waitUntil: 'load' });
       // await this.page.waitForLoadState('load');
-      result.push(await this.allElements.letsCheck());
+      // result.push(await this.allElements.letsCheck());
       console.log(`%c ${i} ${result} %c`, 'color: pink; font-weight: bold;', 'color: inherit;');
       await this.page.goBack();
       await this.page.waitForURL(`${focusPageUrl}`, { waitUntil: 'load' });
