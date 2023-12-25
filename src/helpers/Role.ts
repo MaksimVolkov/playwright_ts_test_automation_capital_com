@@ -1,6 +1,7 @@
 import { expect, Page } from '@playwright/test';
 import { Selectors } from '../elements/Selectors';
 import 'dotenv/config';
+import { step } from '../decorators/allureStepDecorator';
 const { logIn } = Selectors.forms;
 const { buttonLogIn, buttonMyAccount, buttonLogout } = Selectors.header.buttons;
 export class Role {
@@ -17,6 +18,7 @@ export class Role {
    *                               UnAuth - unauthorized
    *                               NotReg - unregistered
    */
+  @step
   public async setup(role: string): Promise<void> {
     await this.page.goto('/'); // go to main page
     switch (role) {
@@ -31,7 +33,7 @@ export class Role {
         break;
     }
   }
-
+  @step
   public async setupForAuthorizedUser(): Promise<void> {
     // await this.page.goto('/'); // go to main page
     await this.page.waitForLoadState('load');
@@ -61,7 +63,7 @@ export class Role {
       await this.page.waitForLoadState('load');
     }
   }
-
+  @step
   public async setupForUnauthorizedUser(): Promise<void> {
     await this.setupForAuthorizedUser();
     const openMyAccount = this.page.locator(buttonMyAccount); // getting the submit button
@@ -70,7 +72,7 @@ export class Role {
     await logoutMyAccount.click({ timeout: 5000 });
     await this.page.waitForLoadState('load');
   }
-
+  @step
   public async setupForNotRegisteredUser(): Promise<void> {
     await this.page.context().clearCookies();
     await this.page.waitForURL(process.env.MAIN_URL!);

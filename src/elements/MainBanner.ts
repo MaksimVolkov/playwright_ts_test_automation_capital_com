@@ -1,6 +1,7 @@
 import { Locator, Page } from '@playwright/test';
 import { ContentContainer } from './Selectors';
 import { Form } from './Form';
+import { step } from '../decorators/allureStepDecorator';
 
 export class MainBanner {
   page: Page;
@@ -17,6 +18,7 @@ export class MainBanner {
     this.btnStartTrading = this.page.locator(this.mainBanner.buttons.btnStartTrading);
     this.btnTryDemo = this.page.locator(this.mainBanner.buttons.btnTryDemo);
   }
+  @step
   async checkElement() {
     const banner = this.parentBlock;
     const btnStartTrading = this.btnStartTrading;
@@ -25,9 +27,11 @@ export class MainBanner {
       ? await this.clickBtn(btnStartTrading, btnTryDemo)
       : 'The Main Banner and elements is not Visible';
   }
+  @step
   async isVisibleElement(banner: Locator, btnStartTrading: Locator, btnTryDemo: Locator) {
     return (await banner.isVisible()) && (await btnStartTrading.isVisible()) && (await btnTryDemo.isVisible());
   }
+  @step
   async clickBtn(btnStartTrading: Locator, btnTryDemo: Locator) {
     const isBtnOpenForm: any[] = [];
 

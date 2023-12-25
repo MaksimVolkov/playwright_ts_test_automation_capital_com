@@ -1,6 +1,7 @@
 import { expect, Page } from '@playwright/test';
 import { Selectors } from '../elements/Selectors';
 import 'dotenv/config';
+import { step } from '../decorators/allureStepDecorator';
 
 const {
   countryLanguage,
@@ -20,12 +21,12 @@ export class Precondition {
   constructor(page: Page) {
     this.page = page;
   }
-
+  @step
   public async setup(country: string, language: string, testSection: string, testPart: string): Promise<void> {
     await this.setupCountryAndLanguage(country, language);
     await this.navigateToTestSection(testSection, testPart);
   }
-
+  @step
   public async setupCountryAndLanguage(country: string, language: string): Promise<void> {
     await this.page.locator(countryLanguage).hover(); // show country and language block
     await this.page.locator(dropdownCountry).click({ timeout: 5000 }); // click and open dropdown
@@ -37,7 +38,7 @@ export class Precondition {
     await this.page.locator(languageSelector(language)).click(); // select a language from the list
     // TODO add expect language
   }
-
+  @step
   public async navigateToTestSection(testSection: string, testPart: string): Promise<void> {
     await this.page.locator(education[testSection]).hover(); // testSection
     await this.page.locator(education[testPart]).click(); // testPart
