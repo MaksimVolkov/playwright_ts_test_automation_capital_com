@@ -1,6 +1,7 @@
 import { Locator, Page } from '@playwright/test';
 import { ContentContainer } from './Selectors';
 import { Form } from './Form';
+import { step } from '../decorators/allureStepDecorator';
 
 export class ContWdgGoToMarket {
   private page: Page;
@@ -17,6 +18,7 @@ export class ContWdgGoToMarket {
     this.btnGoToAllCommodities = this.page.locator(this.wdgGoToMarket.buttons.btnGoToAllCommodities);
     this.form = new Form(page);
   }
+  @step
   async checkElement() {
     const parentBlock = this.parentBlock;
     const btnStartTrading = this.btnStartTrading;
@@ -25,6 +27,7 @@ export class ContWdgGoToMarket {
       ? await this.clickBtn(btnStartTrading)
       : false; //'The ContWdgGoToMarket and elements is not Visible'
   }
+  @step
   async isVisibleElem(parentBlock: Locator, btnStartTrading: Locator, btnGoToAllCommodities: Locator) {
     return (
       (await parentBlock.count()) > 0 &&
@@ -32,6 +35,7 @@ export class ContWdgGoToMarket {
       (await btnGoToAllCommodities.count()) > 0
     );
   }
+  @step
   async clickBtn(focusElement: any) {
     await focusElement.click();
     return await this.form.formIsVisible();

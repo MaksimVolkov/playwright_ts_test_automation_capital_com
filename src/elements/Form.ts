@@ -1,5 +1,6 @@
 import { Page } from '@playwright/test';
 import { Forms } from './Selectors';
+import { step } from '../decorators/allureStepDecorator';
 
 export class Form {
   private readonly page: Page;
@@ -13,6 +14,7 @@ export class Form {
     this.formLogIn = Forms.logIn;
     this.formSignUp = Forms.signUp;
   }
+  @step
   async formIsVisible(): Promise<boolean> {
     await this.page.waitForSelector(this.activeForm);
     const signUpModal = this.page.locator(this.formSignUp.signUpBlock);
@@ -37,18 +39,23 @@ export class Form {
 
     return isSignUpVisible || isLogInVisible;
   }
+  @step
   async isVisibleSignUp(): Promise<void> {
     // TODO add
   }
+  @step
   async isVisibleLogIn(): Promise<void> {
     // TODO add
   }
+  @step
   async signUp(): Promise<void> {
     // TODO add
   }
+  @step
   async logIn(): Promise<void> {
     // TODO add
   }
+  @step
   async logOut(): Promise<void> {
     // TODO add
   }

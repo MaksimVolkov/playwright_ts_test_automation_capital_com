@@ -1,6 +1,7 @@
 import { Locator, Page } from '@playwright/test';
 import { Form } from './Form';
 import { ContentContainer } from './Selectors';
+import { step } from '../decorators/allureStepDecorator';
 
 export class StickyBar {
   private page: Page;
@@ -18,7 +19,7 @@ export class StickyBar {
     this.productLink = this.page.locator(this.stickyBar.productLink);
     this.btnGetStarted = this.page.locator(this.stickyBar.buttons.btnGetStarted);
   }
-
+  @step
   async checkElement() {
     const parentBlock = this.parentBlock;
     // const productLink = this.productLink;
@@ -27,11 +28,11 @@ export class StickyBar {
       ? await this.clickBtn(btnGetStarted)
       : 'The Sticky Bar and elements is not Visible';
   }
-
+  @step
   async isVisibleElement(parentBlock: any, focusElement: any) {
     return (await parentBlock.isVisible()) && (await focusElement.isVisible());
   }
-
+  @step
   async clickBtn(focusElement: any) {
     await focusElement.click();
     return await this.form.formIsVisible();

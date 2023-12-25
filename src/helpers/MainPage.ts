@@ -1,6 +1,7 @@
 import { Precondition } from './Precondition';
 import { Role } from './Role';
 import { SelectTestCaseScenario } from './SelectTestCaseScenario';
+import { step } from '../decorators/allureStepDecorator';
 
 export class MainPage {
   private readonly page: any;
@@ -14,7 +15,7 @@ export class MainPage {
     this.precondition = new Precondition(page);
     this.selectTestCaseScenario = new SelectTestCaseScenario(page);
   }
-
+  @step
   async startTest({
     role,
     country,
@@ -50,7 +51,7 @@ export class MainPage {
     await this.precondition.navigateToTestSection(testCase.testSection, testCase.testPart);
     return await this.testCaseScenarioSelector(testCase);
   }
-
+  @step
   async testCaseScenarioSelector(testCase: any) {
     let result: any;
     testCase.level === 1
@@ -58,7 +59,7 @@ export class MainPage {
       : (result = await this.selectTestCaseScenario.runTestSecondLevelScenario(testCase));
     return result;
   }
-
+  @step
   async setup() {
     // setting cookies before each test
     // await this.page.context().addCookies([

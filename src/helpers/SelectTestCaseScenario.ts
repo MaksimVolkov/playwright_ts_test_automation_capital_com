@@ -3,6 +3,7 @@ import { ContentContainer } from '../elements/Selectors';
 // import { Form } from '../elements/Form';
 import { AllElements } from '../elements/AllElements';
 import { getRandomNumber } from './funcHelpers';
+import { step } from '../decorators/allureStepDecorator';
 
 export class SelectTestCaseScenario {
   private readonly page: Page;
@@ -24,6 +25,7 @@ export class SelectTestCaseScenario {
     this.sidebarLinks = this.page.locator(this.sidebarLinkList.links);
     this.selectedLink = (numberChild: number) => this.page.locator(this.sidebarLinkList.selectedLink(numberChild));
   }
+  @step
   async runTestFirstLevelScenario(testCase: any) {
     //
     // const container = this.contentContainer[testCase.testContainer];
@@ -34,6 +36,8 @@ export class SelectTestCaseScenario {
     // const methodNames: Array<keyof AllElements> = ['mainBanner', 'contWdgGoToMarket', 'regStepsTrading', 'widget'];
 
     for (const methodName of methodNames) {
+      console.log(`%c starting class: ${methodName} %c`, 'color: brown; font-weight: bold;', 'color: inherit;');
+
       const resultData = await this.allElements[methodName]();
       console.log(`%c ${resultData} %c`, 'color: yellow; font-weight: bold;', 'color: inherit;');
       result.push(resultData);
@@ -44,6 +48,7 @@ export class SelectTestCaseScenario {
     }
     return !result.includes(false);
   }
+  @step
   async runTestSecondLevelScenario(testCase: any) {
     // const container = this.contentContainer[testCase.testContainer];
     // console.log(container);
@@ -81,6 +86,7 @@ export class SelectTestCaseScenario {
     // const testFocusBlock = this.contentContainer[testCase.testElement];
     // return testFocusBlock.isVisible();
   }
+  @step
   async getLinkListFromSidebar() {
     return true;
   }

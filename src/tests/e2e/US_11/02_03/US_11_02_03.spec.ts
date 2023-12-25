@@ -61,7 +61,7 @@ test.describe('US_11_02.03', () => {
             testCase.description,
           )}`, async () => {
             const isTestPass = await mainPage.startTest({ role, country, language, testCase });
-            expect(isTestPass, `Test case pass: ${testCase.description}`).toBeTruthy();
+            expect(isTestPass, `Test case ${testCase.us_id} pass: ${testCase.description}`).toBeTruthy();
           });
         }
       }
